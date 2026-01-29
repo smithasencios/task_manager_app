@@ -55,8 +55,18 @@
                 }
               ],
               "outputHashing": "all",
-              "optimization": true,
-              "sourceMap": false
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": true,
+                  "removeSpecialComments": true
+                },
+                "fonts": false
+              }
             },
             "development": {
               "optimization": false,
