@@ -1,0 +1,120 @@
+@use '../../../../theme/variables' as v;
+
+:host {
+  display: table-row;
+  border-bottom: 1px solid v.$jira-border;
+
+  &:hover {
+    background: v.$jira-hover;
+  }
+}
+
+td {
+  padding: 10px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid v.$jira-border;
+
+  &.col-check {
+    padding-left: 16px;
+  }
+
+  &.col-key .key {
+    font-size: 13px;
+    color: v.$jira-text-muted;
+    font-weight: 500;
+  }
+
+  &.col-summary .summary {
+    font-weight: 500;
+    color: v.$jira-text;
+
+    &.done {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+  }
+
+  &.col-status .status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    white-space: nowrap;
+
+    &.status-PENDING {
+      background: #dfe1e6;
+      color: #42526e;
+    }
+
+    &.status-IN_PROGRESS {
+      background: v.$jira-blue-light;
+      color: v.$jira-blue;
+    }
+
+    &.status-COMPLETED {
+      background: v.$jira-green-bg;
+      color: v.$jira-green;
+    }
+  }
+
+  &.col-assignee {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .assignee-avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: v.$jira-blue;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .assignee-name {
+      font-size: 13px;
+      color: v.$jira-text-secondary;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &.col-due .due-date {
+    font-size: 13px;
+    color: v.$jira-text-muted;
+  }
+
+  &.col-priority .priority {
+    font-size: 12px;
+    font-weight: 500;
+
+    &.priority-Medium {
+      color: v.$jira-orange;
+    }
+
+    &.priority-Low {
+      color: v.$jira-blue;
+    }
+
+    &.priority-High,
+    &.priority-Highest {
+      color: v.$jira-red;
+    }
+  }
+
+  &.col-actions {
+    text-align: right;
+
+    button {
+      margin-left: 4px;
+    }
+  }
+}
+

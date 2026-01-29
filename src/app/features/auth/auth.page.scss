@@ -1,0 +1,65 @@
+.auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--app-spacing-unit, 8px);
+  box-sizing: border-box;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: calc(var(--app-spacing-unit, 8px) * 3);
+  border-radius: var(--app-radius, 8px);
+  background: var(--mat-sys-surface-container-high, #f5f5f5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.auth-title {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.auth-subtitle {
+  margin: 0 0 24px;
+  color: var(--mat-sys-on-surface-variant, #666);
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.auth-error {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: var(--app-radius, 8px);
+  background: var(--mat-sys-error-container, #ffebee);
+  color: var(--mat-sys-on-error-container, #b71c1c);
+  font-size: 0.9rem;
+}
+
+.submit-btn {
+  margin-top: 8px;
+  min-height: 44px;
+}
+
+.submit-btn mat-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.toggle-mode {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+}

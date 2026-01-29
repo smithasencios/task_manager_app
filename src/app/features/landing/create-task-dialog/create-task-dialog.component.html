@@ -1,0 +1,53 @@
+<div class="dialog-header">
+  <div class="dialog-header-icon" aria-hidden="true">
+    <mat-icon>add_task</mat-icon>
+  </div>
+  <div class="dialog-header-text">
+    <h2 class="dialog-title">Create task</h2>
+    <p class="dialog-subtitle">Add a new task to your list</p>
+  </div>
+</div>
+<mat-dialog-content class="dialog-content">
+  <form [formGroup]="form" class="dialog-form">
+    <mat-form-field appearance="outline" class="full-width" subscriptSizing="dynamic">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        formControlName="title"
+        placeholder="e.g. Review design mockups"
+        maxlength="200"
+      />
+      <mat-hint align="end">{{ form.get('title')?.value?.length ?? 0 }}/200</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width" subscriptSizing="dynamic">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        placeholder="Describe what needs to be done..."
+        rows="4"
+        maxlength="2000"
+      ></textarea>
+      <mat-hint align="end">{{ form.get('description')?.value?.length ?? 0 }}/2000</mat-hint>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+  <button mat-button type="button" (click)="cancel()" [disabled]="submitting()" class="btn-cancel">
+    Cancel
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    (click)="submit()"
+    [disabled]="form.invalid || submitting()"
+    class="btn-create"
+  >
+    @if (submitting()) {
+      <mat-spinner diameter="20" aria-hidden="true"></mat-spinner>
+    } @else {
+      <span class="btn-label"><mat-icon>add</mat-icon> Create task</span>
+    }
+  </button>
+</mat-dialog-actions>

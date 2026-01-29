@@ -1,0 +1,55 @@
+<div class="list-view" role="main" aria-label="Lista de tareas">
+  <div class="list-header">
+    <h1 class="list-title">List</h1>
+    <button class="filters-btn" type="button" aria-label="Filtros">
+      <mat-icon>filter_list</mat-icon>
+      Filters
+    </button>
+  </div>
+
+  <section class="table-section" aria-labelledby="list-title">
+    <h2 id="list-title" class="visually-hidden">Tasks</h2>
+    @if (loading()) {
+      <div class="loading" role="status" aria-live="polite">
+        <mat-spinner diameter="40"></mat-spinner>
+        <span>Loading…</span>
+      </div>
+    } @else if (sortedTasks().length === 0) {
+      <p class="empty">No tasks yet. Use Create or Add item to add one.</p>
+    } @else {
+      <div class="table-wrap">
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th class="col-check"><mat-checkbox aria-label="Select all"></mat-checkbox></th>
+              <th class="col-key">Key</th>
+              <th class="col-summary">Summary</th>
+              <th class="col-status">Status</th>
+              <th class="col-assignee">Assignee</th>
+              <th class="col-due">Due date</th>
+              <th class="col-priority">Priority</th>
+              <th class="col-actions"></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (t of sortedTasks(); track trackByTaskId($index, t)) {
+              <tr
+                app-task-item
+                [task]="t"
+                [taskKey]="'TASK-' + ($index + 1)"
+                [assigneeName]="assigneeName()"
+                [assigneeInitials]="assigneeInitials()"
+                (toggle)="onToggle(t)"
+                (delete)="onDelete(t)"
+              ></tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <button class="add-item-link" type="button" (click)="openCreateModal()">
+        <mat-icon>add</mat-icon>
+        Add item
+      </button>
+    }
+  </section>
+</div>
