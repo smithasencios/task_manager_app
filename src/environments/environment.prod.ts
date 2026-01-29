@@ -1,12 +1,13 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://localhost:3000/api',
+  apiBaseUrl: 'https://api-d4awtrvhgq-uc.a.run.app/api',
   firebase: {
-    apiKey: 'YOUR_API_KEY',
-    authDomain: 'YOUR_PROJECT_ID.firebaseapp.com',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_PROJECT_ID.appspot.com',
-    messagingSenderId: 'YOUR_SENDER_ID',
-    appId: 'YOUR_APP_ID',
+    apiKey: "AIzaSyDJjrbIXAYoxIyCkS5A0tUk0k5ZCNTcTWQ",
+    authDomain: "atomtest-f250b.firebaseapp.com",
+    projectId: "atomtest-f250b",
+    storageBucket: "atomtest-f250b.firebasestorage.app",
+    messagingSenderId: "143131352385",
+    appId: "1:143131352385:web:df682acb266e4e3e00d5c0",
+    measurementId: "G-WTNWBRW4GR"
   },
 };
