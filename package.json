@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prepare": "husky",
     "prestart": "ts-node scripts/set-env.js",
     "start": "ng serve",
     "prebuild": "ts-node scripts/set-env.js",
@@ -13,7 +14,11 @@
     "build:prod": "ng build --configuration production",
     "build:watch": "ng build --watch --configuration development",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "format": "prettier --write \"src/**/*.{ts,html,scss,json}\""
+  },
+  "lint-staged": {
+    "src/**/*.{ts,html,scss,json}": "prettier --write"
   },
   "prettier": {
     "printWidth": 100,
@@ -43,6 +48,9 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.4.2",
     "@angular/build": "^21.1.2",
     "@angular/cli": "^21.1.2",
     "@angular/compiler-cli": "^21.1.0",
