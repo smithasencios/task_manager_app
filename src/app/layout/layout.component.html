@@ -1,0 +1,91 @@
+<div class="workspace">
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <button class="app-icon" type="button" aria-label="Application menu">
+        <mat-icon>grid_view</mat-icon>
+      </button>
+      <span class="app-name">Task Manager</span>
+      <nav class="global-nav">
+        <a class="nav-link active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Projects</a>
+      </nav>
+      <button class="create-btn" type="button" (click)="onCreate()">
+        Create
+      </button>
+    </div>
+    <div class="top-bar-right">
+      <div class="search-wrap">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input type="search" class="search-input" placeholder="Search" aria-label="Search" />
+        <span class="search-shortcut">/</span>
+      </div>
+      <button class="icon-btn" type="button" aria-label="Notifications">
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button class="icon-btn" type="button" aria-label="Help">
+        <mat-icon>help_outline</mat-icon>
+      </button>
+      <button class="icon-btn" type="button" aria-label="Settings">
+        <mat-icon>settings</mat-icon>
+      </button>
+      <div class="user-menu" #userMenu>
+        <button
+          class="user-trigger"
+          type="button"
+          [attr.aria-label]="'Account: ' + displayName()"
+          (click)="userMenuOpen.set(!userMenuOpen())"
+        >
+          <span class="user-avatar" aria-hidden="true">{{ initials() }}</span>
+        </button>
+        @if (userMenuOpen()) {
+          <div class="user-dropdown">
+            <div class="user-dropdown-header">
+              <span class="user-avatar">{{ initials() }}</span>
+              <span class="user-email">{{ user()?.email }}</span>
+            </div>
+            <button class="user-dropdown-item" type="button" (click)="closeUserMenuAndLogout()">
+              Log out
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace-body">
+    <aside class="sidebar">
+      <div class="project-context">
+        <div class="project-icon" aria-hidden="true">
+          <mat-icon>folder</mat-icon>
+        </div>
+        <div class="project-info">
+          <span class="project-name">My Tasks</span>
+          <span class="project-type">Task project</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <mat-icon>list</mat-icon>
+          <span>List</span>
+        </a>
+        <button class="sidebar-link disabled" type="button" disabled>
+          <mat-icon>view_kanban</mat-icon>
+          <span>Board</span>
+        </button>
+        <button class="sidebar-link disabled" type="button" disabled>
+          <mat-icon>calendar_today</mat-icon>
+          <span>Calendar</span>
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="sidebar-link" type="button">
+          <mat-icon>settings</mat-icon>
+          <span>Project settings</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <router-outlet />
+    </main>
+  </div>
+</div>

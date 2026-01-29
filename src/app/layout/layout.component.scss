@@ -1,0 +1,369 @@
+@use '../../theme/variables' as v;
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: v.$jira-bg;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px;
+  background: v.$jira-surface;
+  border-bottom: 1px solid v.$jira-border;
+  flex-shrink: 0;
+}
+
+.top-bar-left,
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: v.$jira-text-secondary;
+  border-radius: v.$jira-radius;
+  cursor: pointer;
+
+  &:hover {
+    background: v.$jira-hover;
+    color: v.$jira-text;
+  }
+
+  mat-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.app-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: v.$jira-text;
+  margin-right: 16px;
+}
+
+.global-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 6px 12px;
+  font-size: 14px;
+  color: v.$jira-text-secondary;
+  text-decoration: none;
+  border-radius: v.$jira-radius;
+
+  &:hover {
+    background: v.$jira-hover;
+    color: v.$jira-text;
+  }
+
+  &.active {
+    background: v.$jira-hover;
+    color: v.$jira-blue;
+    font-weight: 500;
+  }
+}
+
+.create-btn {
+  margin-left: 8px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: v.$jira-blue;
+  border: none;
+  border-radius: v.$jira-radius;
+  cursor: pointer;
+
+  &:hover {
+    background: v.$jira-blue-hover;
+  }
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  background: v.$jira-bg;
+  border: 1px solid v.$jira-border;
+  border-radius: v.$jira-radius;
+  min-width: 200px;
+  margin-right: 8px;
+}
+
+.search-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: v.$jira-text-muted;
+  margin-right: 8px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: v.$jira-text;
+  outline: none;
+
+  &::placeholder {
+    color: v.$jira-text-muted;
+  }
+}
+
+.search-shortcut {
+  font-size: 12px;
+  color: v.$jira-text-muted;
+  margin-left: 4px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: v.$jira-text-secondary;
+  border-radius: v.$jira-radius;
+  cursor: pointer;
+
+  &:hover {
+    background: v.$jira-hover;
+    color: v.$jira-text;
+  }
+
+  mat-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.user-menu {
+  position: relative;
+  margin-left: 4px;
+}
+
+.user-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover .user-avatar {
+    background: v.$jira-blue-hover;
+    color: #fff;
+  }
+}
+
+.user-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: v.$jira-blue;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 220px;
+  background: v.$jira-surface;
+  border: 1px solid v.$jira-border;
+  border-radius: v.$jira-radius;
+  box-shadow: v.$jira-shadow;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.user-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid v.$jira-border;
+
+  .user-avatar {
+    flex-shrink: 0;
+  }
+
+  .user-email {
+    font-size: 13px;
+    color: v.$jira-text-secondary;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.user-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 14px;
+  text-align: left;
+  border: none;
+  background: transparent;
+  color: v.$jira-text;
+  cursor: pointer;
+
+  &:hover {
+    background: v.$jira-hover;
+  }
+}
+
+.workspace-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: v.$jira-surface;
+  border-right: 1px solid v.$jira-border;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+}
+
+.project-context {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 16px;
+  border-bottom: 1px solid v.$jira-border;
+  margin-bottom: 8px;
+}
+
+.project-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: v.$jira-radius;
+  background: linear-gradient(135deg, #6554c0 0%, #8777d9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  mat-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.project-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: v.$jira-text;
+}
+
+.project-type {
+  font-size: 12px;
+  color: v.$jira-text-muted;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 4px 0;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: v.$jira-text-secondary;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 0;
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    color: v.$jira-text-muted;
+  }
+
+  &:hover:not(.disabled) {
+    background: v.$jira-hover;
+    color: v.$jira-text;
+
+    mat-icon {
+      color: v.$jira-text-secondary;
+    }
+  }
+
+  &.active {
+    background: v.$jira-active-bg;
+    color: v.$jira-blue;
+    font-weight: 500;
+
+    mat-icon {
+      color: v.$jira-blue;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.sidebar-footer {
+  padding-top: 8px;
+  border-top: 1px solid v.$jira-border;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  background: v.$jira-bg;
+}

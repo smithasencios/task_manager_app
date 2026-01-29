@@ -1,0 +1,132 @@
+@use '../../../../theme/variables' as v;
+
+:host {
+  display: block;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 24px 0;
+  margin-bottom: 8px;
+}
+
+.dialog-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: v.$jira-radius;
+  background: v.$jira-blue-light;
+  color: v.$jira-blue;
+  flex-shrink: 0;
+
+  mat-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.dialog-header-text {
+  min-width: 0;
+}
+
+.dialog-title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 600;
+  color: v.$jira-text;
+  letter-spacing: -0.01em;
+}
+
+.dialog-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: v.$jira-text-muted;
+  line-height: 1.4;
+}
+
+.dialog-content {
+  padding: 20px 24px 8px !important;
+  margin: 0;
+  min-height: 0;
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 320px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Form fields: neutral borders, blue focus (override Material defaults) */
+::ng-deep .dialog-form .mat-mdc-form-field {
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: v.$jira-border;
+  }
+
+  &.mat-focused .mdc-notched-outline__leading,
+  &.mat-focused .mdc-notched-outline__notch,
+  &.mat-focused .mdc-notched-outline__trailing {
+    border-color: v.$jira-blue;
+  }
+
+  .mat-mdc-floating-label {
+    color: v.$jira-text-secondary;
+  }
+
+  .mat-mdc-form-field-hint {
+    color: v.$jira-text-muted;
+  }
+}
+
+.dialog-actions {
+  padding: 16px 24px 24px !important;
+  margin: 0;
+  min-height: auto;
+  border-top: 1px solid v.$jira-border;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  color: v.$jira-text-secondary;
+
+  &:hover:not(:disabled) {
+    background: v.$jira-hover;
+    color: v.$jira-text;
+  }
+}
+
+.btn-create {
+  min-width: 120px;
+  font-weight: 600;
+
+  .btn-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+}
+
+mat-dialog-actions button mat-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}

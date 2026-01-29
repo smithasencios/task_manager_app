@@ -1,0 +1,90 @@
+@use '../../../theme/variables' as v;
+
+:host {
+  display: block;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 24px 0;
+  margin-bottom: 8px;
+}
+
+.dialog-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: v.$jira-radius;
+  background: v.$jira-blue-light;
+  color: v.$jira-blue;
+  flex-shrink: 0;
+
+  mat-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  &.warn {
+    background: #ffebe6;
+    color: v.$jira-red;
+  }
+}
+
+.dialog-header-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.dialog-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: v.$jira-text;
+  letter-spacing: -0.01em;
+}
+
+.dialog-message {
+  margin: 0;
+  font-size: 14px;
+  color: v.$jira-text-secondary;
+  line-height: 1.5;
+}
+
+.dialog-actions {
+  padding: 16px 24px 24px !important;
+  margin: 0;
+  min-height: auto;
+  border-top: 1px solid v.$jira-border;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  color: v.$jira-text-secondary;
+  background: transparent;
+
+  &:hover {
+    background: v.$jira-hover;
+    color: v.$jira-text;
+  }
+}
+
+.btn-confirm {
+  min-width: 90px;
+  font-weight: 600;
+
+  &.btn-confirm-warn {
+    background-color: #de350b !important;
+    color: #fff !important;
+
+    &:hover:not(:disabled) {
+      background-color: #ff5630 !important;
+      color: #fff !important;
+    }
+  }
+}
