@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "ts-node scripts/set-env.js",
     "start": "ng serve",
+    "prebuild": "ts-node scripts/set-env.js",
+    "prebuild:prod": "ts-node scripts/set-env.js",
     "start:prod": "ng serve --configuration production",
     "build": "ng build --configuration production",
     "build:dev": "ng build --configuration development",
@@ -43,7 +46,9 @@
     "@angular/build": "^21.1.2",
     "@angular/cli": "^21.1.2",
     "@angular/compiler-cli": "^21.1.0",
+    "dotenv": "^17.2.3",
     "jsdom": "^27.1.0",
+    "ts-node": "^10.9.2",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }
