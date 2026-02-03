@@ -1,4 +1,12 @@
-import { Component, inject, computed, signal, HostListener, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  inject,
+  computed,
+  signal,
+  HostListener,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,6 +39,7 @@ export class LayoutComponent {
   @ViewChild('userMenu') userMenuRef?: ElementRef<HTMLElement>;
 
   readonly userMenuOpen = signal(false);
+  readonly sidebarOpen = signal(false);
   readonly user = this.auth.user;
   readonly displayName = computed(() => {
     const u = this.user();
@@ -49,9 +58,18 @@ export class LayoutComponent {
   onCreate(): void {
     this.dialog.open(CreateTaskDialogComponent, {
       width: '520px',
+      maxWidth: '95vw',
       disableClose: false,
       panelClass: 'create-task-dialog-panel',
     });
+  }
+
+  toggleSidebar(): void {
+    this.sidebarOpen.update((v) => !v);
+  }
+
+  closeSidebar(): void {
+    this.sidebarOpen.set(false);
   }
 
   closeUserMenuAndLogout(): void {

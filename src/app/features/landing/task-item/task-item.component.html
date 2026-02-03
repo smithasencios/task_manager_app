@@ -1,30 +1,40 @@
-<td class="col-check">
+<td class="col-check" data-label="">
   <mat-checkbox
     [checked]="completed()"
     (change)="toggle.emit()"
     [attr.aria-label]="(completed() ? 'Mark incomplete' : 'Mark complete') + ': ' + task.title"
   ></mat-checkbox>
 </td>
-<td class="col-key"><span class="key">{{ taskKey }}</span></td>
-<td class="col-summary">
+<td class="col-key" data-label="Key">
+  <span class="key">{{ taskKey }}</span>
+</td>
+<td class="col-summary" data-label="Summary">
   <span class="summary" [class.done]="completed()">{{ task.title }}</span>
 </td>
-<td class="col-status">
+<td class="col-status" data-label="Status">
   <span class="status-badge" [class]="'status-' + task.status">{{ statusLabel() }}</span>
 </td>
-<td class="col-assignee">
+<td class="col-assignee" data-label="Assignee">
   <span class="assignee-avatar" aria-hidden="true">{{ assigneeInitials }}</span>
   <span class="assignee-name">{{ assigneeName }}</span>
 </td>
-<td class="col-due"><span class="due-date">{{ dueDateLabel() }}</span></td>
-<td class="col-priority">
+<td class="col-due" data-label="Due date">
+  <span class="due-date">{{ dueDateLabel() }}</span>
+</td>
+<td class="col-priority" data-label="Priority">
   <span class="priority" [class]="'priority-' + priorityLabel()">{{ priorityLabel() }}</span>
 </td>
-<td class="col-actions">
+<td class="col-actions" data-label="">
   <button mat-icon-button (click)="openEditModal()" aria-label="Edit task" type="button">
     <mat-icon>edit</mat-icon>
   </button>
-  <button mat-icon-button color="warn" (click)="delete.emit()" aria-label="Delete task" type="button">
+  <button
+    mat-icon-button
+    color="warn"
+    (click)="delete.emit()"
+    aria-label="Delete task"
+    type="button"
+  >
     <mat-icon>delete</mat-icon>
   </button>
 </td>
