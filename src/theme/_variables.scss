@@ -1,4 +1,10 @@
 // Jira-like design tokens
+// Breakpoints (mobile-first: use min-width in media queries when needed)
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 $jira-blue: #0052cc;
 $jira-blue-hover: #0065ff;
 $jira-blue-light: #deebff;

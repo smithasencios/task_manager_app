@@ -1,5 +1,7 @@
 @use '../../../../theme/variables' as v;
 
+$bp-md: v.$bp-md;
+
 :host {
   display: table-row;
   border-bottom: 1px solid v.$jira-border;
@@ -7,12 +9,21 @@
   &:hover {
     background: v.$jira-hover;
   }
+
+  @media (max-width: $bp-md) {
+    display: block;
+    border-bottom: none;
+  }
 }
 
 td {
   padding: 10px 12px;
   vertical-align: middle;
   border-bottom: 1px solid v.$jira-border;
+
+  @media (max-width: $bp-md) {
+    border-bottom: 1px solid v.$jira-border;
+  }
 
   &.col-check {
     padding-left: 16px;
@@ -117,4 +128,3 @@ td {
     }
   }
 }
-

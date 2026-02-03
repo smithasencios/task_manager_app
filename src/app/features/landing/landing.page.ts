@@ -64,6 +64,7 @@ export class LandingPage implements OnInit {
   openCreateModal(): void {
     this.dialog.open(CreateTaskDialogComponent, {
       width: '520px',
+      maxWidth: '95vw',
       disableClose: false,
       panelClass: 'create-task-dialog-panel',
     });
@@ -79,6 +80,7 @@ export class LandingPage implements OnInit {
   onDelete(task: Task): void {
     const ref = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
+      maxWidth: '95vw',
       panelClass: 'create-task-dialog-panel',
       data: {
         title: 'Delete task',
